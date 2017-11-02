@@ -20,10 +20,8 @@ require("./routes/group-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 require("./routes/tasks-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
-<<<<<<< HEAD
 require("./routes/html-routes.js")(app);
-=======
->>>>>>> a7f2ffc534d9586f102e770c721a30ca8e6ac4ba
+
 
 db.sequelize.sync({ force: true }).then(function() {
 	app.listen(PORT, function() {
