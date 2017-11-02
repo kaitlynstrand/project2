@@ -1,0 +1,39 @@
+CREATE DATABASE IF NOT EXISTS chores_db;
+USE chores_db;
+
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+user_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+first_name VARCHAR(25) NOT NULL,
+last_name VARCHAR(25) NOT NULL,
+group_name VARCHAR(25) NOT NULL,
+PRIMARY KEY(id)
+FOREIGN KEY (group_name)
+
+);
+
+DROP TABLE IF EXISTS groups;
+
+CREATE TABLE groups (
+group_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+group_name VARCHAR(25) NOT NULL
+PRIMARY KEY(id)
+);
+
+);
+
+DROP TABLE IF EXISTS tasks;
+
+CREATE TABLE tasks (
+task_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+task_description VARCHAR(50) NOT NULL,
+date_due (DATE) NOT NULL,
+date_created (DATE) NOT NULL,
+points INTEGER(20) NOT NULL,
+completed BOOLEAN DEFAULT false,
+group_id INTEGER(20) NOT NULL,
+user_id INTEGER(20) NOT NULL,
+PRIMARY KEY (task_id)
+
+)
