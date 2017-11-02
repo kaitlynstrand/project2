@@ -119,6 +119,12 @@
               <p class="subtitle">Completed Chores</p>
             </article>
           </div>
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title">{{###}}</p>
+              <p class="subtitle">Unassigned Chores</p>
+            </article>
+          </div>
           <!-- <div class="tile is-parent">
               <article class="tile is-child box">
                 <p class="title">3.4k</p>
@@ -135,7 +141,7 @@
       </section>
 
       <div class="columns">
-        <div class="column is-6">
+        <div class="column is-4">
           <div class="card">
             <header class="card-header">
               <p class="card-header-title">
@@ -178,11 +184,11 @@
         </div>
       </div>
 
-        <div class="column is-6">
+        <div class="column is-4">
           <div class="card events-card">
             <header class="card-header">
               <p class="card-header-title">
-                Chores
+                Assigned Chores
               </p>
               <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
@@ -239,6 +245,63 @@
                       <td>Car Wash</td>
                       <td><a class="button is-small is-primary" href="#">Complete</a></td>
                     </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <footer class="card-footer">
+              <a href="#" class="card-footer-item">View All</a>
+            </footer>
+          </div>
+        </div>
+
+                <div class="column is-4">
+          <div class="card events-card">
+            <header class="card-header">
+              <p class="card-header-title">
+                Unassigned Chores
+              </p>
+              <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+            </header>
+            <div class="card-table">
+              <div class="content">
+                <table class="table is-fullwidth is-striped">
+                  <tbody>
+                    <tr>
+                      <td width="5%"><i class="fa fa-bell-o"></i></td>
+                      <td>{{Unassigned Task 1}}</td>
+                      <td><a class="button is-small is-info" href="#">Claim</a></td>
+                    </tr>
+                    <tr>
+                      <td width="5%"><i class="fa fa-bell-o"></i></td>
+                      <td>{{Unassigned Task 2}}</td>
+                      <td><a class="button is-small is-info" href="#">Claim</a></td>
+                    </tr>
+                    <tr>
+                      <td width="5%"><i class="fa fa-bell-o"></i></td>
+                      <td>{{Unassigned Task 3}}</td>
+                      <td><a class="button is-small is-info" href="#">Claim</a></td>
+                    </tr>
+                    <tr>
+                      <td width="5%"><i class="fa fa-bell-o"></i></td>
+                      <td>{{Unassigned Task 4}}</td>
+                      <td><a class="button is-small is-info" href="#">Claim</a></td>
+                    </tr>
+                    <tr>
+                      <td width="5%"><i class="fa fa-bell-o"></i></td>
+                      <td>{{Unassigned Task 5}}</td>
+                      <td><a class="button is-small is-info" href="#">Claim</a></td>
+                    </tr>
+                    <tr>
+                      <td width="5%"><i class="fa fa-bell-o"></i></td>
+                      <td>{{Unassigned Task 6}}</td>
+                      <td><a class="button is-small is-info" href="#">Claim</a></td>
+                    </tr>
+            
                   </tbody>
                 </table>
               </div>
