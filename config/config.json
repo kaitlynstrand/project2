@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": null,
+=======
+    "password": "password",
+>>>>>>> a7f2ffc534d9586f102e770c721a30ca8e6ac4ba
     "database": "chores_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
