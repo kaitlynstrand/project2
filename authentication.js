@@ -1,5 +1,3 @@
-<script type="text/javascript">
-
   	var config = {
   		apiKey: "AIzaSyDlnHucKYIchB5wqS5A8YiaJctTHcjOzz4",
   		authDomain: "project2-465d0.firebaseapp.com",
@@ -9,6 +7,9 @@
   		messagingSenderId: "968557390544"
   	};
   	firebase.initializeApp(config);
+
+   var database = firebase.database();
+
     /**
      * Handles the sign in button press.
      */
@@ -125,7 +126,7 @@
       // [START authstatelistener]
       firebase.auth().onAuthStateChanged(function(user) {
         // [START_EXCLUDE silent]
-        document.getElementById('quickstart-verify-email').disabled = true;
+        // document.getElementById('quickstart-verify-email').disabled = true;
         // [END_EXCLUDE]
         if (user) {
           // User is signed in.
@@ -147,22 +148,25 @@
         } else {
           // User is signed out.
           // [START_EXCLUDE]
-          document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
-          document.getElementById('quickstart-sign-in').textContent = 'Sign in';
-          document.getElementById('quickstart-account-details').textContent = 'null';
+          // document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
+          // document.getElementById('quickstart-sign-in').textContent = 'Sign in';
+          // document.getElementById('quickstart-account-details').textContent = 'null';
           // [END_EXCLUDE]
         }
         // [START_EXCLUDE silent]
-        document.getElementById('quickstart-sign-in').disabled = false;
+        // document.getElementById('quickstart-sign-in').disabled = false;
         // [END_EXCLUDE]
       });
       // [END authstatelistener]
-      document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
+      // document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
       document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
-      document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
-      document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
+      document.getElementById("quickstart-sign-up").onclick = function(){
+        console.log("you clicked")
+      }
+      // document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
+      // document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
     }
     window.onload = function() {
       initApp();
+      // console.log("You clicked")
     };
-  </script>
