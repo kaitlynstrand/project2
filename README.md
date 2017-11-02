@@ -1,6 +1,7 @@
 # project2
 Second Group Project
 
+"It's fun to do chores - if you're not the one doing them"
 
 Edge Quintanilla
 Kaitlyn Strand
@@ -18,10 +19,10 @@ Twilio REST API post to it and tell it what to do
 Put that data into mySQL
 Log in firebase be in a group with your roommates
 put you in a "house"
-create chores in database
-weekly and/or new ones
-boolean if finished
-value set to the user inside each chore
+Create chores in database (mySQL)
+Weekly chores set for each group, then users can add new chores
+Boolean if chore completed or not
+The user assigns points inside each chore
 if other volunteers dont raise hand to get points
 incentivize by more points
 can only verify that you completed task if you were the one who volunteered

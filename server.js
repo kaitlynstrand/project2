@@ -1,3 +1,4 @@
+
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
@@ -6,6 +7,7 @@ var handlebars = require("handlebars");
 var app = express();
 var db = require("./models");
 var PORT = process.env.PORT || 8080;
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
