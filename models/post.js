@@ -11,11 +11,19 @@ module.exports = function(sequelize, DataTypes) {
 		points: {
 			type: DataTypes.INTEGER,
 			allowNull: false
+		},
+		claim: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false
+		},
+		completed: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false
 		}
 	})
 
 	Task.associate = function(models) {
-		Task.hasMany(models.User, {
+		Task.belongsTo(models.Group, {
 			foreignKey: {
 				allowNull: false
 			}
