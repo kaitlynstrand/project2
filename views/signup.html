@@ -27,17 +27,17 @@
             </figure>
             <div class="columns">
               <div class="column is-6">
-                <form>
+                <form >
 
                   <div class="field">
                     <div class="control">
-                      <input class="input is-large" type="name" placeholder="Your Name" autofocus="">
+                      <input class="input is-large" type="name" id="name" placeholder="Your Name" autofocus="">
                     </div>
                   </div>
 
                   <div class="field">
                     <div class="control">
-                      <input class="input is-large" type="email" placeholder="Your Email" autofocus="">
+                      <input class="input is-large" type="email" id="email" placeholder="Your Email" autofocus="">
                     </div>
                   </div>
                 </div>
@@ -45,13 +45,13 @@
                   <div class="column is-6">
                     <div class="field">
                       <div class="control">
-                        <input class="input is-large" type="mobile" placeholder="Your mobile" autofocus="">
+                        <input class="input is-large" type="mobile" id="mobile" placeholder="Your mobile" autofocus="">
                       </div>
                     </div>
 
                     <div class="field">
                       <div class="control">
-                        <input class="input is-large" type="password" placeholder="Your Password">
+                        <input class="input is-large" type="password" id="password" placeholder="Your Password">
                       </div>
                     </div>
                     <div class="field">
@@ -59,7 +59,7 @@
                         <input type="checkbox"> Remember me
                       </label>
                     </div>
-                    <a class="button is-block is-info is-large">Login</a>
+                    <a class="button is-block is-info is-large" id="quickstart-sign-up">Sign Up</a>
                 </form>
                 </div>
               </div>
@@ -74,7 +74,15 @@
       </div>
     </div>
   </section>
-  <script async type="text/javascript" src="../js/bulma.js"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  <!-- LINK TO FIREBASE GOES HERE -->
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+  <script type="text/javascript" src="../authentication.js" ></script>
+<!--   <script async type="text/javascript" src="../js/bulma.js"></script> -->
+
 </body>
 
 </html>
