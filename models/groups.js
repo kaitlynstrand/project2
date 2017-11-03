@@ -11,6 +11,10 @@ module.exports = function(sequelize, DataTypes) {
 		Group.hasMany(models.Task, {
 			onDelete: "cascade"
 		});
+
+		Group.hasMany(models.User, {
+			onDelete: "cascade"
+		});
 	};
 
 	return Group;
