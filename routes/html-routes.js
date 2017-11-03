@@ -8,17 +8,25 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../views/signup.html"));
+    res.render("home");
+  });
+
+   app.get("/groups", function(req, res) {
+    res.render("groups");
   });
 
   // cms route loads cms.html
   app.get("/admin", function(req, res) {
-    res.sendFile(path.join(__dirname, "../views/admin.html"));
+    res.render("tasks");
   });
 
   // blog route loads blog.html
   app.get("/creategoup", function(req, res) {
-    res.sendFile(path.join(__dirname, "../views/creategroup.html"));
+    res.render("groups");
+  });
+
+    app.get("/add", function(req, res) {
+    res.render("add-task");
   });
 
   // authors route loads author-manager.html
@@ -30,12 +38,12 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../views/signup.html"));
   });
 
-  app.get("/submittask", function(req, res) {
-    res.sendFile(path.join(__dirname, "../views/submittask.html"));
+  app.get("/mytasks", function(req, res) {
+    res.render("mytasks");
   });
 
   app.get("/tasks", function(req, res) {
-    res.sendFile(path.join(__dirname, "../views/tasks.html"));
+    res.render("tasks");
   });
 
 };
