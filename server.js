@@ -14,7 +14,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
 app.use(express.static("views"));
+
+// app.get('/', function (req, res) {
+//     res.render('tasks');
+// });
+
+
 
 require("./routes/group-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
