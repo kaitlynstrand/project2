@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-	app.get("/api/group", function(results) {
+	app.get("/api/group", function(req, res) {
 		db.Group.findAll({}).then(function(results) {
 			res.json(results)
 		})
