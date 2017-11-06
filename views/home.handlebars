@@ -95,51 +95,20 @@
               <div class="content">
                 <table class="table is-fullwidth is-striped">
                   <tbody>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Trash duty}}</td>
-                      <td><a class="button is-small is-danger" href="#">Incomplete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Dishes}}</td>
-                      <td><a class="button is-small is-danger" href="#">Incomplete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Bathroom</td>
-                      <td><a class="button is-small is-danger" href="#">Incomplete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Laundry</td>
-                      <td><a class="button is-small is-danger" href="#">Incomplete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Floors Cleaned</td>
-                      <td><a class="button is-small is-primary" href="#">Complete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Windors Cleaned</td>
-                      <td><a class="button is-small is-primary" href="#">Complete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Pressure Wash Driveway</td>
-                      <td><a class="button is-small is-primary" href="#">Complete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Kitchen Cleaned</td>
-                      <td><a class="button is-small is-primary" href="#">Complete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Car Wash</td>
-                      <td><a class="button is-small is-primary" href="#">Complete</a></td>
-                    </tr>
+                    {{#each chores}}
+                        {{#if this.claim}}
+                          <tr>
+                          <td width="5%"><i class="fa fa-bell-o"></i></td>
+                          <td>{{this.id}}. {{this.description}}</td>
+                          {{#if this.completed}} 
+                            <td><a class="button is-small is-primary" href="#">Complete</a></td>
+                          {{/if}}
+                          {{#unless this.completed}}
+                            <td><a class="button is-small is-danger" href="#">Incomplete</a></td>
+                          {{/unless}}
+                        {{/if}}
+                      </tr>
+                    {{/each}}   
                   </tbody>
                 </table>
               </div>
@@ -166,37 +135,15 @@
               <div class="content">
                 <table class="table is-fullwidth is-striped">
                   <tbody>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Unassigned Task 1}}</td>
-                      <td><a class="button is-small is-info" href="#">Claim</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Unassigned Task 2}}</td>
-                      <td><a class="button is-small is-info" href="#">Claim</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Unassigned Task 3}}</td>
-                      <td><a class="button is-small is-info" href="#">Claim</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Unassigned Task 4}}</td>
-                      <td><a class="button is-small is-info" href="#">Claim</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Unassigned Task 5}}</td>
-                      <td><a class="button is-small is-info" href="#">Claim</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Unassigned Task 6}}</td>
-                      <td><a class="button is-small is-info" href="#">Claim</a></td>
-                    </tr>
-
+                    {{#each chores}}
+                        {{#unless this.claim}}
+                          <tr>
+                          <td width="5%"><i class="fa fa-bell-o"></i></td>
+                          <td>{{this.id}}. {{this.description}}</td> 
+                            <td><a class="button is-small is-info" href="#">Claim</a></td>
+                        {{/unless}}
+                      </tr>
+                    {{/each}}   
                   </tbody>
                 </table>
               </div>
