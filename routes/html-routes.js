@@ -1,4 +1,5 @@
 var path = require("path");
+var db = require("../models");
 
 // Routes
 // =============================================================
@@ -8,7 +9,17 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
-    res.render("home");
+
+    db.Task.findAll({}).then(function(results) {
+
+      var choresObject = {chores :  results}
+
+      res.render("home", choresObject)
+    });
+
+
+
+
   });
 
    app.get("/groups", function(req, res) {
