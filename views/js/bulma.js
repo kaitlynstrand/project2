@@ -7,9 +7,9 @@
     var burger = $('.navbar-burger');
     var menu = $('#navMenu');
 
-    burger.hover(function() {
-        $('nav').attr('class', 'is-white');
-        burger.attr('class','is-active');
-        menu.attr('class', '');
+    burger.click(function() {
+        // $('nav').toggleClass('is-white', true);
+        burger.toggleClass('is-active');
+        menu.toggleClass('is-active');
     });
 })();
