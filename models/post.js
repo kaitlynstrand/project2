@@ -28,6 +28,15 @@ module.exports = function(sequelize, DataTypes) {
 				allowNull: false
 			}
 		})
+
+		Task.belongsTo(models.User, {
+			foreignKey: {
+				allowNull: true
+			}
+		})
+
+
+
 	};
 
 	return Task;
