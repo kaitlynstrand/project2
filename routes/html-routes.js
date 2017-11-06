@@ -22,13 +22,8 @@ module.exports = function(app) {
 
   });
 
-   app.get("/groups", function(req, res) {
+  app.get("/groups", function(req, res) {
     res.render("groups");
-  });
-
-  // cms route loads cms.html
-  app.get("/admin", function(req, res) {
-    res.render("tasks");
   });
 
   // blog route loads blog.html
@@ -36,7 +31,7 @@ module.exports = function(app) {
     res.render("groups");
   });
 
-    app.get("/add", function(req, res) {
+  app.get("/add", function(req, res) {
     res.render("add-task");
   });
 
@@ -52,9 +47,4 @@ module.exports = function(app) {
   app.get("/mytasks", function(req, res) {
     res.render("mytasks");
   });
-
-  app.get("/tasks", function(req, res) {
-    res.render("tasks");
-  });
-
 };
