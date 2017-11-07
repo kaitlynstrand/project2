@@ -101,7 +101,7 @@
                             <td><a class="button is-small is-primary" href="#">Complete</a></td>
                           {{/if}}
                           {{#unless this.completed}}
-                            <td><a class="button is-small is-danger" href="#">Incomplete</a></td>
+                            <td><a id="incomplete-btn" class="button is-small is-danger" href="#">Incomplete</a></td>
                           {{/unless}}
                         {{/if}}
                       </tr>
@@ -137,12 +137,11 @@
 
                     {{#each chores}}
                         {{#unless this.claim}}
-                          <tr>
                           {{!-- <td width="5%"><i class="fa fa-bell-o"></i></td> --}}
                           <td>{{this.description}}</td>
                           <td>{{this.points}}</td>
                           <td>{{this.date_due}}</td>
-                            <td><a class="button is-small is-info" href="#">Claim</a></td>
+                            <td><a id={{this.id}} class="button is-small is-info" href="#">Claim</a></td>
                         {{/unless}}
                       </tr>
                     {{/each}}
