@@ -36,6 +36,8 @@ $(document).ready(function() {
 			$.post("/api/group", newGroupObject).then(function(results) {
 				console.log(results)
 			})
+			return results.render("home", newGroupObject)
+			results.redirect("/")
 		})
 })
 
