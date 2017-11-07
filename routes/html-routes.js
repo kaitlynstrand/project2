@@ -46,7 +46,7 @@ module.exports = function(app) {
     res.render("groups");
   });
 
-  app.get("/creategoup", function(req, res) {
+  app.get("/creategroup", function(req, res) {
     res.render("groups");
   });
 
