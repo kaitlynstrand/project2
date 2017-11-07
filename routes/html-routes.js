@@ -7,9 +7,14 @@ var sequelize = require("sequelize")
 module.exports = function(app) {
 
   // Each of the below routes just handles the HTML page that the user gets sent to.
+  //This should point to the splash page
+  app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/home.html"));
+  });
 
   // index route loads view.html
-  app.get("/", function(req, res) {
+  //this might need to point to another page that's a bit more IN the application and not at the top-level.
+  app.get("/home", function(req, res) {
     console.log("starting this")
 
     db.Task.findAll({
@@ -43,6 +48,8 @@ module.exports = function(app) {
 
   });
 
+
+
   app.get("/groups", function(req, res) {
     res.render("groups");
   });
@@ -74,7 +81,7 @@ module.exports = function(app) {
         where: {UserId: 1,
                 completed: 1}
       }).then(function(completedCountResults){
-          
+
               var hbsObject = {tasks : taskResults,
                                completedCount: completedCountResults }
 
