@@ -4,11 +4,17 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.STRING,
 			allowNull: false
 		}
-	});
+	}, {
+    	timestamps: false
+  	});
 
 	Group.associate = function(models) {
 
 		Group.hasMany(models.Task, {
+			onDelete: "cascade"
+		});
+
+		Group.hasMany(models.User, {
 			onDelete: "cascade"
 		});
 	};
