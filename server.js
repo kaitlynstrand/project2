@@ -20,21 +20,12 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static("views"));
 
-// app.get('/', function (req, res) {
-//     res.render('tasks');
-// });
-
-
-
 require("./routes/group-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 require("./routes/tasks-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
-<<<<<<< HEAD
-=======
 
->>>>>>> 7a127b631380b0e3b67591108503308678f88ff1
 
 db.sequelize.sync().then(function() {
 	app.listen(PORT, function() {

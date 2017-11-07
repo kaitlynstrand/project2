@@ -25,10 +25,17 @@ module.exports = function(sequelize, DataTypes) {
 	Task.associate = function(models) {
 		Task.belongsTo(models.Group, {
 			foreignKey: {
-				allowNull: false
+				allowNull: true
 			}
 		})
-	};
+	}
+	Task.associate = function(models) {
+		Task.belongsTo(models.User, {
+			foreignKey: {
+				allowNull: true
+			}
+		})
+	}
 
 	return Task;
 };
