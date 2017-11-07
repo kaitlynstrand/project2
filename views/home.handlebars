@@ -11,7 +11,7 @@
           </div>
         </div>
       </section>
-      <section class="info-tiles">
+     {{!--  <section class="info-tiles">
         <div class="tile is-ancestor has-text-centered">
           <div class="tile is-parent">
             <article class="tile is-child box">
@@ -33,7 +33,8 @@
           </div>
 
            </div>
-      </section>
+      </section> --}}
+      <br>
 
       <div class="columns">
         <div class="column is-4">
@@ -42,36 +43,28 @@
               <p class="card-header-title">
                 Leaderboard
               </p>
-              <a href="#" class="card-header-icon" aria-label="more options">
+              {{!-- <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </span>
-                </a>
+                </a> --}}
             </header>
             <div class="card-table">
               <div class="content">
                 <table class="table is-fullwidth is-striped">
                   <tbody>
-                    <tr>
-                      <td width="5%"><i class="fa fa-user-o "></i></td>
-                      <td>Max T.</td>
-                      <td><a class="button is-small is-primary" href="#">{Score}}</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-user-o "></i></td>
-                      <td>Kaitlyn S.</td>
-                      <td><a class="button is-small is-primary" href="#">{Score}}</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-user-o "></i></td>
-                      <td>Nick V.</td>
-                      <td><a class="button is-small is-primary" href="#">{Score}}</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-user-o "></i></td>
-                      <td>Edge Q.</td>
-                      <td><a class="button is-small is-danger" href="#">{Score}}</a></td>
-                    </tr>
+                    {{!-- <th></th> --}}
+                    <th> Roomie </th>
+                    <th> Total Points </th>
+                    {{#each leaders}}
+                      <tr>
+                        {{!-- <td width="5%"><i class="fa fa-user-o "></i></td> --}}
+                        
+                        <td>{{this.dataValues.first_name}} {{this.dataValues.last_name}} </td>
+                        <td> {{this.dataValues.sum_points}} </td>
+                      </tr>
+                    {{/each}}
+                   
                   </tbody>
                 </table>
               </div>
@@ -85,21 +78,25 @@
               <p class="card-header-title">
                 Assigned Chores
               </p>
-              <a href="#" class="card-header-icon" aria-label="more options">
+              {{!-- <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </span>
-                </a>
+                </a> --}}
             </header>
             <div class="card-table">
               <div class="content">
                 <table class="table is-fullwidth is-striped">
                   <tbody>
+{{!--                     <th></th>
+ --}}                    <th> Task </th>
+                    <th> Assignee </th>
                     {{#each chores}}
                         {{#if this.claim}}
                           <tr>
-                          <td width="5%"><i class="fa fa-bell-o"></i></td>
-                          <td>{{this.id}}. {{this.description}}</td>
+{{!--                           <td width="5%"><i class="fa fa-bell-o"></i></td>
+ --}}                     <td>{{this.description}} </td>
+                          <td> {{this.dataValues.User.first_name}} {{this.dataValues.User.last_name}}  </td>
                           {{#if this.completed}} 
                             <td><a class="button is-small is-primary" href="#">Complete</a></td>
                           {{/if}}
@@ -113,9 +110,6 @@
                 </table>
               </div>
             </div>
-            <footer class="card-footer">
-              <a href="#" class="card-footer-item">View All</a>
-            </footer>
           </div>
         </div>
 
@@ -125,21 +119,29 @@
               <p class="card-header-title">
                 Unassigned Chores
               </p>
-              <a href="#" class="card-header-icon" aria-label="more options">
+              {{!-- <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </span>
-                </a>
+                </a> --}}
             </header>
             <div class="card-table">
               <div class="content">
                 <table class="table is-fullwidth is-striped">
                   <tbody>
+                    {{!-- <th></th> --}}
+                    <th> Task </th>
+                    <th> Points </th>
+                    <th> Due Date </th>
+
+
                     {{#each chores}}
                         {{#unless this.claim}}
                           <tr>
-                          <td width="5%"><i class="fa fa-bell-o"></i></td>
-                          <td>{{this.id}}. {{this.description}}</td> 
+                          {{!-- <td width="5%"><i class="fa fa-bell-o"></i></td> --}}
+                          <td>{{this.description}}</td> 
+                          <td>{{this.points}}</td>
+                          <td>{{this.date_due}}</td>
                             <td><a class="button is-small is-info" href="#">Claim</a></td>
                         {{/unless}}
                       </tr>
@@ -148,9 +150,9 @@
                 </table>
               </div>
             </div>
-            <footer class="card-footer">
+{{!--             <footer class="card-footer">
               <a href="#" class="card-footer-item">View All</a>
-            </footer>
+            </footer> --}}
           </div>
         </div>
 

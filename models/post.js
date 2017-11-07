@@ -20,7 +20,9 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.BOOLEAN,
 			defaultValue: false
 		}
-	})
+	}, {
+    	timestamps: false
+  	})
 
 	Task.associate = function(models) {
 		Task.belongsTo(models.Group, {
@@ -34,9 +36,6 @@ module.exports = function(sequelize, DataTypes) {
 				allowNull: true
 			}
 		})
-
-
-
 	};
 
 	return Task;

@@ -10,13 +10,19 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: false,
 		}
 
-	});
+	}, {
+    	timestamps: false
+  	});
 
 	User.associate = function(models) {
 		User.belongsTo(models.Group, {
 			foreignKey: {
 				allowNull: false
 			}
+		});
+
+		User.hasMany(models.Task, {
+			onDelete: "cascade"
 		});
 
 	};
