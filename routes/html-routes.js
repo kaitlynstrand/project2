@@ -46,7 +46,6 @@ module.exports = function(app) {
     res.render("groups");
   });
 
-  // blog route loads blog.html
   app.get("/creategoup", function(req, res) {
     res.render("groups");
   });
@@ -55,7 +54,7 @@ module.exports = function(app) {
     res.render("add-task");
   });
 
-  // authors route loads author-manager.html
+
   app.get("/login", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/login.html"));
   });
