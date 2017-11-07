@@ -1,0 +1,27 @@
+curl -i -H "Content-Type: application/json" -X POST --data-ascii '{"group_name":"Group1"}' http://localhost:8080/api/group
+
+curl -i -H "Content-Type: application/json" -X POST --data-ascii '{"group_name":"Group2"}' http://localhost:8080/api/group
+
+curl -i -H "Content-Type: application/json" -X POST --data-ascii '{"first_name":"kaitlyn", "last_name":"strand", "GroupId":1}' http://localhost:8080/api/users
+
+curl -i -H "Content-Type: application/json" -X POST --data-ascii '{"first_name":"nick", "last_name":"vree", "GroupId":1}' http://localhost:8080/api/users
+
+curl -i -H "Content-Type: application/json" -X POST --data-ascii '{"first_name":"edge", "last_name":"quintanilla", "GroupId":1}' http://localhost:8080/api/users
+
+curl -i -H "Content-Type: application/json" -X POST --data-ascii '{"first_name":"max", "last_name":"teibel", "GroupId":1}' http://localhost:8080/api/users
+
+curl -i -H "Content-Type: application/json" -X POST --data-ascii '{"description":"unclaimed", "date_due":"01-01-2017", "points":69, "claim":false, "completed":false, "GroupId":1}' http://localhost:8080/api/task
+
+curl -i -H "Content-Type: application/json" -X POST --data-ascii '{"description":"claimed incomplete", "date_due":"01-01-2017", "points":69, "claim":true, "completed":false, "GroupId":1, "UserId":1}' http://localhost:8080/api/task
+
+curl -i -H "Content-Type: application/json" -X POST --data-ascii '{"description":"claimed complete1", "date_due":"01-01-2017", "points":69, "claim":true, "completed":true, "GroupId":1, "UserId":1}' http://localhost:8080/api/task
+
+curl -i -H "Content-Type: application/json" -X POST --data-ascii '{"description":"claimed complete2", "date_due":"01-01-2017", "points":69, "claim":true, "completed":true, "GroupId":1, "UserId":1}' http://localhost:8080/api/task
+
+curl -i -H "Content-Type: application/json" -X POST --data-ascii '{"description":"claimed complete3", "date_due":"01-01-2017", "points":69, "claim":true, "completed":true, "GroupId":1, "UserId":1}' http://localhost:8080/api/task
+
+
+
+
+
+

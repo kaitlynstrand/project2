@@ -1,0 +1,2 @@
+INSERT INTO GROUPS (group_name)
+VALUES ('group ABC')

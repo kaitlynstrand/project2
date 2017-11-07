@@ -2,16 +2,16 @@
   <section class="hero is-info welcome is-small">
         <div class="hero-body">
           <div class="container">
-            <h1 class="title">
+            <h1 class="title main">
                 Hello, Roomie.
               </h1>
-            <h2 class="subtitle">
+            <h2 class="subtitle main">
                 Create or Sign up for chores below.
               </h2>
           </div>
         </div>
       </section>
-      <section class="info-tiles">
+     {{!--  <section class="info-tiles">
         <div class="tile is-ancestor has-text-centered">
           <div class="tile is-parent">
             <article class="tile is-child box">
@@ -33,7 +33,8 @@
           </div>
 
            </div>
-      </section>
+      </section> --}}
+      <br>
 
       <div class="columns">
         <div class="column is-4">
@@ -42,36 +43,28 @@
               <p class="card-header-title">
                 Leaderboard
               </p>
-              <a href="#" class="card-header-icon" aria-label="more options">
+              {{!-- <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </span>
-                </a>
+                </a> --}}
             </header>
             <div class="card-table">
               <div class="content">
                 <table class="table is-fullwidth is-striped">
                   <tbody>
-                    <tr>
-                      <td width="5%"><i class="fa fa-user-o "></i></td>
-                      <td>Max T.</td>
-                      <td><a class="button is-small is-primary" href="#">{Score}}</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-user-o "></i></td>
-                      <td>Kaitlyn S.</td>
-                      <td><a class="button is-small is-primary" href="#">{Score}}</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-user-o "></i></td>
-                      <td>Nick V.</td>
-                      <td><a class="button is-small is-primary" href="#">{Score}}</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-user-o "></i></td>
-                      <td>Edge Q.</td>
-                      <td><a class="button is-small is-danger" href="#">{Score}}</a></td>
-                    </tr>
+                    {{!-- <th></th> --}}
+                    <th> Roomie </th>
+                    <th> Total Points </th>
+                    {{#each leaders}}
+                      <tr>
+                        {{!-- <td width="5%"><i class="fa fa-user-o "></i></td> --}}
+
+                        <td>{{this.dataValues.first_name}} {{this.dataValues.last_name}} </td>
+                        <td> {{this.dataValues.sum_points}} </td>
+                      </tr>
+                    {{/each}}
+
                   </tbody>
                 </table>
               </div>
@@ -85,68 +78,38 @@
               <p class="card-header-title">
                 Assigned Chores
               </p>
-              <a href="#" class="card-header-icon" aria-label="more options">
+              {{!-- <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </span>
-                </a>
+                </a> --}}
             </header>
             <div class="card-table">
               <div class="content">
                 <table class="table is-fullwidth is-striped">
                   <tbody>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Trash duty}}</td>
-                      <td><a class="button is-small is-danger" href="#">Incomplete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Dishes}}</td>
-                      <td><a class="button is-small is-danger" href="#">Incomplete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Bathroom</td>
-                      <td><a class="button is-small is-danger" href="#">Incomplete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Laundry</td>
-                      <td><a class="button is-small is-danger" href="#">Incomplete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Floors Cleaned</td>
-                      <td><a class="button is-small is-primary" href="#">Complete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Windors Cleaned</td>
-                      <td><a class="button is-small is-primary" href="#">Complete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Pressure Wash Driveway</td>
-                      <td><a class="button is-small is-primary" href="#">Complete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Kitchen Cleaned</td>
-                      <td><a class="button is-small is-primary" href="#">Complete</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Car Wash</td>
-                      <td><a class="button is-small is-primary" href="#">Complete</a></td>
-                    </tr>
+{{!--                     <th></th>
+ --}}                    <th> Task </th>
+                    <th> Assignee </th>
+                    {{#each chores}}
+                        {{#if this.claim}}
+                          <tr>
+{{!--                           <td width="5%"><i class="fa fa-bell-o"></i></td>
+ --}}                     <td>{{this.description}} </td>
+                          <td> {{this.dataValues.User.first_name}} {{this.dataValues.User.last_name}}  </td>
+                          {{#if this.completed}}
+                            <td><a class="button is-small is-primary" href="#">Complete</a></td>
+                          {{/if}}
+                          {{#unless this.completed}}
+                            <td><a class="button is-small is-danger" href="#">Incomplete</a></td>
+                          {{/unless}}
+                        {{/if}}
+                      </tr>
+                    {{/each}}
                   </tbody>
                 </table>
               </div>
             </div>
-            <footer class="card-footer">
-              <a href="#" class="card-footer-item">View All</a>
-            </footer>
           </div>
         </div>
 
@@ -156,54 +119,39 @@
               <p class="card-header-title">
                 Unassigned Chores
               </p>
-              <a href="#" class="card-header-icon" aria-label="more options">
+              {{!-- <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </span>
-                </a>
+                </a> --}}
             </header>
             <div class="card-table">
               <div class="content">
                 <table class="table is-fullwidth is-striped">
                   <tbody>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Unassigned Task 1}}</td>
-                      <td><a class="button is-small is-info" href="#">Claim</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Unassigned Task 2}}</td>
-                      <td><a class="button is-small is-info" href="#">Claim</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Unassigned Task 3}}</td>
-                      <td><a class="button is-small is-info" href="#">Claim</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Unassigned Task 4}}</td>
-                      <td><a class="button is-small is-info" href="#">Claim</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Unassigned Task 5}}</td>
-                      <td><a class="button is-small is-info" href="#">Claim</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>{Unassigned Task 6}}</td>
-                      <td><a class="button is-small is-info" href="#">Claim</a></td>
-                    </tr>
+                    {{!-- <th></th> --}}
+                    <th> Task </th>
+                    <th> Points </th>
+                    <th> Due Date </th>
 
+
+                    {{#each chores}}
+                        {{#unless this.claim}}
+                          <tr>
+                          {{!-- <td width="5%"><i class="fa fa-bell-o"></i></td> --}}
+                          <td>{{this.description}}</td>
+                          <td>{{this.points}}</td>
+                          <td>{{this.date_due}}</td>
+                            <td><a class="button is-small is-info" href="#">Claim</a></td>
+                        {{/unless}}
+                      </tr>
+                    {{/each}}
                   </tbody>
                 </table>
               </div>
             </div>
-            <footer class="card-footer">
+{{!--             <footer class="card-footer">
               <a href="#" class="card-footer-item">View All</a>
-            </footer>
+            </footer> --}}
           </div>
         </div>
-
