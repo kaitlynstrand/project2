@@ -3,13 +3,11 @@ module.exports = function(sequelize, DataTypes) {
 		to: {
 			type: DataTypes.STRING,
 			allowNull: false,
-
 		},
 		last_name: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		}
-
 	});
 
 	Twilio.associate = function(models) {
@@ -18,7 +16,6 @@ module.exports = function(sequelize, DataTypes) {
 				allowNull: false
 			}
 		});
-
 	};
 
 	return Twilio;

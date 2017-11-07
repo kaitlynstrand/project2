@@ -3,13 +3,11 @@ module.exports = function(sequelize, DataTypes) {
 		first_name: {
 			type: DataTypes.STRING,
 			allowNull: false,
-
 		},
 		last_name: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		}
-
 	});
 
 	User.associate = function(models) {
@@ -18,7 +16,6 @@ module.exports = function(sequelize, DataTypes) {
 				allowNull: false
 			}
 		});
-
 	};
 
 	return User;

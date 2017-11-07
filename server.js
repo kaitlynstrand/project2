@@ -20,12 +20,6 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static("views"));
 
-// app.get('/', function (req, res) {
-//     res.render('tasks');
-// });
-
-
-
 require("./routes/group-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 require("./routes/tasks-api-routes.js")(app);
