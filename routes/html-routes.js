@@ -10,6 +10,7 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
+    console.log("starting this")
 
     db.Task.findAll({
       include: [{model: db.User}]
@@ -30,7 +31,7 @@ module.exports = function(app) {
 
         var tasksUsers = {chores: resultsTasks, leaders: resultsUsers}
 
-        console.log(tasksUsers.leaders[0])
+        console.log(tasksUsers.leaders[0], "another log in the index route")
 
         res.render("home", tasksUsers)
 
