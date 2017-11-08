@@ -9,20 +9,16 @@ $(document).ready(function() {
 		taskDescription = $("#task-description").val().trim()
 		dueDate = $("#date").val().trim()
 		points = $("#points").val().trim()
-		//console.log(Task.description)
-
 		
 		var newTaskObject = {
 			description: taskDescription,
 			date_due: dueDate,
 			points: points
 		}
-			console.log(newTaskObject)
-			$.post("/api/task", newTaskObject, function(data){
-				console.log("finished")
-				document.location = '/'
-			});
-		})
+		console.log(newTaskObject)
+		$.post("/api/task", newTaskObject, function(data) {
+			document.location = '/home'
+		});
+	})
 })
 
-			

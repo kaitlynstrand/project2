@@ -1,12 +1,14 @@
-// $(document).ready(function() {
-// 	$(document).on("click", ".button", function(){
-// 		var buttonClicked = $(this).attr("id")
-// 		console.log(buttonClicked)
-// 		$.post("api/task/").then(function(results) {
-// 			console.log(results)
-// 		})
-// 	})
-// })
+$(document).ready(function() {
+
+	$(document).on("click", ".claim-button", function(){
+		
+		var buttonClicked = $(this).attr("id")
+		console.log(buttonClicked)
+		$.put("api/task/:claim").then(function(results) {
+			console.log(results)
+		})
+	})
+})
 
 
 // app.put("/api/task/:claim", function(req, res) {
@@ -21,4 +23,3 @@
 // 			res.json(results);
 // 		});
 // 	});
-	
