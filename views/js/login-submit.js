@@ -26,6 +26,11 @@ $(document).ready(function() {
 		$.post("/api/users", newUser).then(function(results) {
 			console.log(results)
 
+
 		})
+
 	})
+
+			window.location("/home")
+
 })
