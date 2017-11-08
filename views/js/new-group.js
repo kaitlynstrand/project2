@@ -9,13 +9,10 @@ $(document).ready(function() {
 		var newGroupObject = {
 			group_name: groupName
 		}
-			$.post("/api/group", newGroupObject).then(function(results) {
-				console.log(results)
-			
+		console.log(newGroupObject)
+		$.post("/api/group", newGroupObject, function(data) {
+			document.location = "/signup"
 		})
-			// return results.render("home", newGroupObject)
-			// results.redirect("/signup")
-		})
+	})
 })
 
-			
