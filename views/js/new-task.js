@@ -19,6 +19,12 @@ $(document).ready(function() {
 		$.post("/api/task", newTaskObject, function(data) {
 			document.location = '/home'
 		});
+
+		$("#task-description").val('')
+		$("#date").val('')
+		$("#points").val('')
+
+		
 	})
 })
 
