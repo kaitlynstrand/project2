@@ -14,13 +14,32 @@
 
     loginButton.click(function(){
       event.preventDefault();
-      // loginAction()
+      loginAction()
       console.log("clicked")
-
-      window.location = "/home"
-
       
     })
+
+    function loginAction() {
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      var auth = firebase.auth()
+
+      var promise = auth.signInWithEmailAndPassword(email,password)
+      promise.catch(e => console.log(e.message))
+    }
+
+    firebase.auth().onAuthStateChanged(function(user) {
+      window.user = user; // user is undefined if no user signed in
+      
+      if(user){
+        $.get("/api/lookupuser/"+user.email, function(data){
+        localStorage.clear();
+        localStorage.setItem("userId", data.id);
+        window.location = "/home"
+        });
+      }
+    })
+
 
     /**
      * Handles the sign in button press.

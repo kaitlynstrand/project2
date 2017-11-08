@@ -18,4 +18,15 @@ module.exports = function(app) {
 			
 		})
 	})
+
+	
+	app.get("/api/lookupuser/:email", function(req,res){
+		console.log(req.params.id)
+		db.User.findOne({
+			attributes : ['id'],
+			where : {last_name : req.params.email}
+		}).then(function(results){
+			res.json(results)
+		})
+	})
 }
