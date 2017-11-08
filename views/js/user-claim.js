@@ -1,11 +1,15 @@
 $(document).ready(function() {
 
-	$(document).on("click", ".claim-button", function(){
+	$(document).on("click", ".claim_button", function(){
 		
 		var buttonClicked = $(this).attr("id")
 		console.log(buttonClicked)
-		$.put("api/task/:claim").then(function(results) {
+		$.ajax({
+			type: "PUT",
+			url: "/api/task/" + buttonClicked,
+		}).then(function(results) {
 			console.log(results)
+			document.location = "/home"
 		})
 	})
 })

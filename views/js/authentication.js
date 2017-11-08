@@ -10,6 +10,18 @@
 
    var database = firebase.database();
 
+    var loginButton = $("#login-button")
+
+    loginButton.click(function(){
+      event.preventDefault();
+      // loginAction()
+      console.log("clicked")
+
+      window.location = "/home"
+
+      
+    })
+
     /**
      * Handles the sign in button press.
      */

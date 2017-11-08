@@ -16,7 +16,6 @@ module.exports = function(app) {
 	app.put("/api/users", function(req, res) {
 		db.User.update({
 			
-			
 		})
 	})
 }

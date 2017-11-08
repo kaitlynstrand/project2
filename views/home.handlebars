@@ -93,10 +93,10 @@
  --}}                     <td>{{this.description}} </td>
                           <td> {{this.dataValues.User.first_name}} {{this.dataValues.User.last_name}}  </td>
                           {{#if this.completed}}
-                            <td><a id = 'completed-button' class="button is-small is-primary" href="#">Complete</a></td>
+                            <td><a id ={{this.id}} class="complete-btn" "button is-small is-primary" href="#">Complete</a></td>
                           {{/if}}
                           {{#unless this.completed}}
-                            <td><a id="incomplete-btn" class="button is-small is-danger" href="#">Incomplete</a></td>
+                            <td><a id={{this.id}} class="complete-btn" "button is-small is-danger" href="#">Incomplete</a></td>
                           {{/unless}}
                         {{/if}}
                       </tr>
@@ -128,12 +128,13 @@
                     <th> Points </th>
                     <th> Due Date </th>
                     {{#each chores}}
+                      <tr>
                         {{#unless this.claim}}
                           {{!-- <td width="5%"><i class="fa fa-bell-o"></i></td> --}}
                           <td>{{this.description}}</td>
                           <td>{{this.points}}</td>
                           <td>{{this.date_due}}</td>
-                            <td><a id={{this.id}} class="claim button button is-small is-info" href="#">Claim</a></td>
+                            <td><a id={{this.id}} class="claim_button button is-small is-info" href="#">Claim</a></td>
                         {{/unless}}
                       </tr>
                     {{/each}}
