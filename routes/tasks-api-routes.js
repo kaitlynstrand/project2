@@ -26,7 +26,7 @@ module.exports = function(app) {
 		});
 	});
 
-app.put("/api/task/:completed", function(req, res) {
+app.put("/api/task/completed/:completed", function(req, res) {
 		db.Task.update({
 			completed: true
 		},

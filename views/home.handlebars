@@ -93,10 +93,10 @@
  --}}                     <td>{{this.description}} </td>
                           <td> {{this.dataValues.User.first_name}} {{this.dataValues.User.last_name}}  </td>
                           {{#if this.completed}}
-                            <td><a id = 'completed-button' class="button is-small is-primary" href="#">Complete</a></td>
+                            <td><a id ={{this.id}} class="complete-btn" "button is-small is-primary" href="#">Complete</a></td>
                           {{/if}}
                           {{#unless this.completed}}
-                            <td><a id="incomplete-btn" class="button is-small is-danger" href="#">Incomplete</a></td>
+                            <td><a id={{this.id}} class="complete-btn" "button is-small is-danger" href="#">Incomplete</a></td>
                           {{/unless}}
                         {{/if}}
                       </tr>

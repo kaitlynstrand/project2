@@ -9,6 +9,7 @@ $(document).ready(function() {
 			url: "/api/task/" + buttonClicked,
 		}).then(function(results) {
 			console.log(results)
+			document.location = "/home"
 		})
 	})
 })
