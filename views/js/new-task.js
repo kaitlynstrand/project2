@@ -20,6 +20,14 @@ $(document).ready(function() {
 			console.log("hello")
 			document.location = "/home"
 		});
+
+		$("#task-description").val("")
+		$("#date").val("")
+		$("#points").val("")
 	})
+
+	
+
+
 })
 
