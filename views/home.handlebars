@@ -128,6 +128,7 @@
                     <th> Points </th>
                     <th> Due Date </th>
                     {{#each chores}}
+                      <tr>
                         {{#unless this.claim}}
                           {{!-- <td width="5%"><i class="fa fa-bell-o"></i></td> --}}
                           <td>{{this.description}}</td>
