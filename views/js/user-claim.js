@@ -1,25 +1,25 @@
 $(document).ready(function() {
 
-	var input = $("#user-claim");
-
-//this is where we update the claim to "claimed" and append to 
-//actual users task page "/mytasks" and
-//mark on page with tasks/assignments to "claimed" so no one else can "claim"
-	$(document).on("click", "/")
+	$(document).on("click", ".claim-button", function(){
+		
+		var buttonClicked = $(this).attr("id")
+		console.log(buttonClicked)
+		$.put("api/task/:claim").then(function(results) {
+			console.log(results)
+		})
+	})
 })
 
-//when current user click "claim", the task, points need to go to their "api/mytasks" page
-//becomes disabled button/"claimed!!" on tasks overall page
-//added onto users "api/mytasks" page
 
-//function 1 - add task to user who claimed it
+// app.put("/api/task/:claim", function(req, res) {
+// 		db.Task.update({
+// 			claim: true
+// 		},
+// 		{
+// 			where: {
+// 				id: req.params.claim
 
-//function 2 - remove claim availability from open claims list - move to  claimed 
-//but incomplete list
-
-$(document).ready(function() {
-
-
-})
-
-	
+// 		}).then(function(results) {
+// 			res.json(results);
+// 		});
+// 	});

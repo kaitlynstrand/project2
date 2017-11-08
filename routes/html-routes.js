@@ -7,9 +7,15 @@ var sequelize = require("sequelize")
 module.exports = function(app) {
 
   // Each of the below routes just handles the HTML page that the user gets sent to.
+  //This should point to the splash page
+  app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/home.html"));
+  });
 
   // index route loads view.html
-  app.get("/", function(req, res) {
+  //this might need to point to another page that's a bit more IN the application and not at the top-level.
+  app.get("/home", function(req, res) {
+    console.log("starting this")
 
     db.Task.findAll({
       include: [{model: db.User}]
@@ -30,7 +36,7 @@ module.exports = function(app) {
 
         var tasksUsers = {chores: resultsTasks, leaders: resultsUsers}
 
-        console.log(tasksUsers.leaders[0])
+        console.log(tasksUsers.leaders[0], "another log in the index route")
 
         res.render("home", tasksUsers)
 
@@ -41,6 +47,8 @@ module.exports = function(app) {
 
 
   });
+
+
 
   app.get("/groups", function(req, res) {
     res.render("groups");
@@ -73,21 +81,20 @@ module.exports = function(app) {
         where: {UserId: 1,
                 completed: 1}
       }).then(function(completedCountResults){
-          
-              var hbsObject = {tasks : taskResults,
-                               completedCount: completedCountResults }
-
-
-              res.render("mytasks", hbsObject)
-
-              console.log(hbsObject.completedCount)
-
-
+        db.Task.findAll({
+        attributes : [[sequelize.fn('count', sequelize.col('id')), 'incomplete_tasks'] ],
+        where: {UserId: 1,
+                completed: 0}
+        }).then(function(incompleteCountResults){
+          var hbsObject = {
+                            tasks : taskResults,
+                            completedCount: completedCountResults,
+                            incompleteCount: incompleteCountResults
+                          }
+          res.render("mytasks", hbsObject)
+          console.log(hbsObject.incompleteCount)
+        })
       })
-
-
-
-    })
-
+    });
   });
-};
+}

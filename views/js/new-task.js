@@ -15,10 +15,16 @@ $(document).ready(function() {
 			date_due: dueDate,
 			points: points
 		}
-			$.post("/api/task", newTaskObject).then(function(results) {
-				console.log(results)
-			})
-		})
+		console.log(newTaskObject)
+		$.post("/api/task", newTaskObject, function(data) {
+			document.location = '/home'
+		});
+
+		$("#task-description").val('')
+		$("#date").val('')
+		$("#points").val('')
+
+		
+	})
 })
 
-			
