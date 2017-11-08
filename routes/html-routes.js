@@ -81,21 +81,20 @@ module.exports = function(app) {
         where: {UserId: 1,
                 completed: 1}
       }).then(function(completedCountResults){
-
-              var hbsObject = {tasks : taskResults,
-                               completedCount: completedCountResults }
-
-
-              res.render("mytasks", hbsObject)
-
-              console.log(hbsObject.completedCount)
-
-
+        db.Task.findAll({
+        attributes : [[sequelize.fn('count', sequelize.col('id')), 'incomplete_tasks'] ],
+        where: {UserId: 1,
+                completed: 0}
+        }).then(function(incompleteCountResults){
+          var hbsObject = {
+                            tasks : taskResults,
+                            completedCount: completedCountResults,
+                            incompleteCount: incompleteCountResults
+                          }
+          res.render("mytasks", hbsObject)
+          console.log(hbsObject.incompleteCount)
+        })
       })
-
-
-
-    })
-
+    });
   });
-};
+}
