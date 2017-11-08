@@ -7,6 +7,7 @@ module.exports = function(app) {
 		});
 	});
 	app.post("/api/task", function(req, res) {
+		console.log("we made it back here")
 		db.Task.create(req.body).then(function(results) {
 		});
 		//console.log(req.body)
