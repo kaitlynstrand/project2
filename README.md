@@ -7,7 +7,7 @@ Second Group Project
 CHORE-US is a task management app for groups.
 
 ## Heroku
-[chore-us-pr02.herokuapp.com](chore-us-pr02.herokuapp.com)
+[chore-us-pr02.herokuapp.com](http://chore-us-pr02.herokuapp.com)
 * You can click on Forgot Password to bypass login.
 
 ## Contributors
