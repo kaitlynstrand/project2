@@ -71,31 +71,30 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../views/signup.html"));
   });
 
-  app.get("/mytasks", function(req, res) {
+  app.get("/mytasks/:id", function(req, res) {
 
     db.Task.findAll({
-      where: {UserId: 1}
+      where: {UserId: req.params.id}
     }).then(function(taskResults){
       db.Task.findAll({
         attributes : [[sequelize.fn('count', sequelize.col('id')), 'completed_tasks'], [sequelize.fn('sum', sequelize.col('points')), 'sum_points'] ],
-        where: {UserId: 1,
+        where: {UserId: req.params.id,
                 completed: 1}
       }).then(function(completedCountResults){
-
-              var hbsObject = {tasks : taskResults,
-                               completedCount: completedCountResults }
-
-
-              res.render("mytasks", hbsObject)
-
-              console.log(hbsObject.completedCount)
-
-
+        db.Task.findAll({
+        attributes : [[sequelize.fn('count', sequelize.col('id')), 'incomplete_tasks'] ],
+        where: {UserId: req.params.id,
+                completed: 0}
+        }).then(function(incompleteCountResults){
+          var hbsObject = {
+                            tasks : taskResults,
+                            completedCount: completedCountResults,
+                            incompleteCount: incompleteCountResults
+                          }
+          res.render("mytasks", hbsObject)
+          console.log(hbsObject.incompleteCount)
+        })
       })
-
-
-
-    })
-
+    });
   });
-};
+}

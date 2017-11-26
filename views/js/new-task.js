@@ -17,8 +17,17 @@ $(document).ready(function() {
 		}
 		console.log(newTaskObject)
 		$.post("/api/task", newTaskObject, function(data) {
-			document.location = "/"
+			console.log("hello")
+			document.location = "/home"
 		});
+
+		$("#task-description").val("")
+		$("#date").val("")
+		$("#points").val("")
 	})
+
+	
+
+
 })
 

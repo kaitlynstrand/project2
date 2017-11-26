@@ -16,7 +16,17 @@ module.exports = function(app) {
 	app.put("/api/users", function(req, res) {
 		db.User.update({
 			
-			
+		})
+	})
+
+	
+	app.get("/api/lookupuser/:email", function(req,res){
+		console.log(req.params.id)
+		db.User.findOne({
+			attributes : ['id'],
+			where : {last_name : req.params.email}
+		}).then(function(results){
+			res.json(results)
 		})
 	})
 }

@@ -7,6 +7,7 @@ module.exports = function(app) {
 		});
 	});
 	app.post("/api/task", function(req, res) {
+		console.log("we made it back here")
 		db.Task.create(req.body).then(function(results) {
 		});
 		//console.log(req.body)
@@ -25,7 +26,7 @@ module.exports = function(app) {
 		});
 	});
 
-app.put("/api/task/:completed", function(req, res) {
+app.put("/api/task/completed/:completed", function(req, res) {
 		db.Task.update({
 			completed: true
 		},

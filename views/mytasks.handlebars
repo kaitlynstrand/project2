@@ -27,12 +27,14 @@
           <p class="title">
             {{#each completedCount}}{{this.dataValues.completed_tasks}}{{/each}}
           </p>
-          <p class="subtitle">Total Tasks Completed</p>
+          <p class="subtitle">Tasks Completed</p>
         </article>
       </div>
       <div class="tile is-parent">
         <article class="tile is-child box">
-          <p class="title">{###}</p>
+          <p class="title">
+            {{#each incompleteCount}}{{this.dataValues.incomplete_tasks}}{{/each}}
+          </p>
           <p class="subtitle">Remaining Tasks</p>
         </article>
       </div>
