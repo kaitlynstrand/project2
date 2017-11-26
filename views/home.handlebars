@@ -1,0 +1,149 @@
+ <div class="column">
+  <section class="hero is-info welcome is-small">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title main">
+                Hello, Roomie.
+              </h1>
+            <h2 class="subtitle main">
+                Create or Sign up for chores below.
+              </h2>
+          </div>
+        </div>
+      </section>
+     {{!--  <section class="info-tiles">
+        <div class="tile is-ancestor has-text-centered">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title">NUMBER</p>
+              <p class="subtitle">Available Tasks</p>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title">NUMBER</p>
+              <p class="subtitle">Completed Chores</p>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title">NUMBER</p>
+              <p class="subtitle">Unassigned Chores</p>
+            </article>
+          </div>
+           </div>
+      </section> --}}
+      <br>
+      <div class="columns">
+        <div class="column is-4">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+                Leaderboard
+              </p>
+              {{!-- <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a> --}}
+            </header>
+            <div class="card-table">
+              <div class="content">
+                <table class="table is-fullwidth is-striped">
+                  <tbody>
+                    {{!-- <th></th> --}}
+                    <th> Roomie </th>
+                    <th> Total Points </th>
+                    {{#each leaders}}
+                      <tr>
+                        {{!-- <td width="5%"><i class="fa fa-user-o "></i></td> --}}
+                        <td>{{this.dataValues.first_name}}  </td>
+                        <td> {{this.dataValues.sum_points}} </td>
+                      </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+      </div>
+        <div class="column is-4">
+          <div class="card events-card">
+            <header class="card-header">
+              <p class="card-header-title">
+                Assigned Chores
+              </p>
+              {{!-- <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a> --}}
+            </header>
+            <div class="card-table">
+              <div class="content">
+                <table class="table is-fullwidth is-striped">
+                  <tbody>
+{{!--                     <th></th>
+ --}}                    <th> Task </th>
+                    <th> Assignee </th>
+                    {{#each chores}}
+                        {{#if this.claim}}
+                          <tr>
+{{!--                           <td width="5%"><i class="fa fa-bell-o"></i></td>
+ --}}                     <td>{{this.description}} </td>
+                          <td> {{this.dataValues.User.first_name}} </td>
+                          {{#if this.completed}}
+                            <td><a id ={{this.id}} class="complete-btn" "button is-small is-primary" href="#">Complete</a></td>
+                          {{/if}}
+                          {{#unless this.completed}}
+                            <td><a id={{this.id}} class="complete-btn" "button is-small is-danger" href="#">Incomplete</a></td>
+                          {{/unless}}
+                        {{/if}}
+                      </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+                <div class="column is-4">
+          <div class="card events-card">
+            <header class="card-header">
+              <p class="card-header-title">
+                Unassigned Chores
+              </p>
+              {{!-- <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a> --}}
+            </header>
+            <div class="card-table">
+              <div class="content">
+                <table class="table is-fullwidth is-striped">
+                  <tbody>
+                    {{!-- <th></th> --}}
+                    <th> Task </th>
+                    <th> Points </th>
+                    <th> Due Date </th>
+                    {{#each chores}}
+                      <tr>
+                        {{#unless this.claim}}
+                          {{!-- <td width="5%"><i class="fa fa-bell-o"></i></td> --}}
+                          <td>{{this.description}}</td>
+                          <td>{{this.points}}</td>
+                          <td>{{this.date_due}}</td>
+                            <td><a id={{this.id}} class="claim_button button is-small is-info" href="#">Claim</a></td>
+                        {{/unless}}
+                      </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+{{!--             <footer class="card-footer">
+              <a href="#" class="card-footer-item">View All</a>
+            </footer> --}}
+          </div>
+        </div>
